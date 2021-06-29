@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 模板拷贝自：https://docs.spring.io/spring-framework/docs/5.2.0.RELEASE/spring-framework-reference/core.html#beans-factory-metadata -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 默认：用无参构造 -->
+    <bean id="user" class="pojo.User">
+        <property name="name" value="Spring" />
+    </bean>
+
+    <!-- 构造函数方式1：通过参数下标赋值 -->
+    <bean id="user2" class="pojo.User">
+        <constructor-arg index="0" value="通过参数下标赋值"/>
+    </bean>
+
+    <!-- 构造函数方式2：通过参数类型赋值。不建议使用，比如有两个string参数就不行了 -->
+    <bean id="user3" class="pojo.User">
+        <constructor-arg type="java.lang.String" value="通过参数类型赋值"/>
+    </bean>
+
+    <!-- 构造函数方式3：通过参数名赋值。作者建议用法，认为最直观!!!!!!!!!!!!!!!!!! -->
+    <bean id="user4" class="pojo.User">
+        <constructor-arg name="name" value="通过参数名赋值"/>
+    </bean>
+
+    <!-- constructor-arg也支持ref赋值方式（当参数是其它class时），不举例了 -->
+
+</beans>
