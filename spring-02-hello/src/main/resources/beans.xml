@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 模板拷贝自：https://docs.spring.io/spring-framework/docs/5.2.0.RELEASE/spring-framework-reference/core.html#beans-factory-metadata -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--使用spring创建对象。spring中这些都叫做bean
+
+    -->
+    <bean id="hello" class="pojo.Hello">
+        <!-- 对象必须有set方法。-->
+        <property name="name" value="Spring" />
+    </bean>
+
+</beans>
