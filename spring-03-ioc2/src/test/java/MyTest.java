@@ -39,6 +39,7 @@ public class MyTest {
          * true
          *
          * 头4行， 说明在配置文件加载的时候（ApplicationContext创建好的时候），容器里的对象就被初始化了。
+         * 最后一行，说明同一个id的bean实例化多次，还是同一个实例（单例模式）
          */
     }
 }
