@@ -7,6 +7,52 @@
     <bean id="student" class="pojo.Student">
         <!--第一种，普通值注入， value-->
         <property name="name" value="top gun" />
+        <!--第2种，bean注入，ref-->
+        <property name="address" ref="address" />
+        <!--第3种，数组注入， array-->
+        <property name="books" >
+            <array>
+                <value>"红楼梦"</value>
+                <value>"西游记"</value>
+            </array>
+        </property>
+        <!--第4种，list注入， list-->
+        <property name="hobbies" >
+            <list>
+                <value>"音乐"</value>
+                <value>"电影"</value>
+            </list>
+        </property>
+        <!--第5种，map注入， map-->
+        <property name="card" >
+            <map>
+                <entry key="身份证" value="身份照号码" />
+                <entry key="学生证" value="学生证号码" />
+            </map>
+        </property>
+        <!--第6种，set注入， set-->
+        <property name="games">
+            <set>
+                <description>"set的描述"</description>
+                <value>"生化危机"</value>
+                <value>"CS"</value>
+            </set>
+        </property>
+        <!--第7种，null注入， null-->
+        <property name="wife">
+            <null></null>
+        </property>
+        <!--第8种，property注入， prop-->
+        <property name="info">
+            <props>
+                <prop key="性别">"二椅子"</prop>
+                <prop key="籍贯">"USA"</prop>
+            </props>
+        </property>
+
     </bean>
 
+    <bean id="address" class="pojo.Address">
+        <property name="address" value="北京市海淀区"/>
+    </bean>
 </beans>
