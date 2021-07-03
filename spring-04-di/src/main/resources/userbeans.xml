@@ -17,7 +17,7 @@
     <bean id="user2" class="pojo.User" c:age="12" c:name="hello"/>
 
     <!-- 混合测试。注意age注入两次，后面的生效，覆盖前面的。 -->
-    <bean id="mixPAndCUser" class="pojo.User" c:age="12" c:name="hello" p:nickName="昵称" p:age="13"/>
+    <bean id="mixPAndCUser" class="pojo.User" c:age="12" c:name="hello" p:nickName="昵称" p:age="13" scope="singleton"/>
 
 
 </beans>
