@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- p标签测试， 注意上面第四行是新加的: "xmlns:p="http://www.springframework.org/schema/p"。
+        p（property）命名空间注入，可以注入属性。（就不用property标签了）
+     -->
+    <bean id="user" class="pojo.User" p:age="18" p:name="哈哈" />
+
+    <!-- c标签测试， 注意上面第5行是新加的: "xmlns:c="http://www.springframework.org/schema/c"。
+        c（constructor）命名空间注入，构造器。（就不用constructor-arg标签了）
+     -->
+    <bean id="user2" class="pojo.User" c:age="12" c:name="hello"/>
+
+    <!-- 混合测试。注意age注入两次，后面的生效，覆盖前面的。 -->
+    <bean id="mixPAndCUser" class="pojo.User" c:age="12" c:name="hello" p:nickName="昵称" p:age="13"/>
+
+
+</beans>
