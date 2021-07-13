@@ -27,7 +27,8 @@ public class Client {
         );
         proxy2.query(); //[debug] Use query method!  query a user - Oracle
 
-        /** 优点！！！！  不只能代理userService，还能代理productService! **/
+        /** 优点！！！！  不只能代理userService，还能代理productService!
+         * 相比之下，demo02_静态代理.UserServiceProxy只能代理UserService，不能代理productService **/
         //真实角色
         ProductService productService = new ProductServiceMySQLImpl();
         handler.setTarget(productService);     //设置要代理的对象
