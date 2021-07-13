@@ -1,4 +1,4 @@
-package com.xiuwei.demo01;
+package com.xiuwei.demo01_静态代理;
 
 public class Proxy implements Rent{
     private Host host;

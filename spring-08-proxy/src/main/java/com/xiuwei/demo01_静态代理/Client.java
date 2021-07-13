@@ -1,6 +1,4 @@
-package com.xiuwei.demo01;
-
-import java.util.Properties;
+package com.xiuwei.demo01_静态代理;
 
 //租户
 public class Client {

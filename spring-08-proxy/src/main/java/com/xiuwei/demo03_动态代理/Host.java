@@ -1,6 +1,4 @@
-package com.xiuwei.demo03_dynamic_proxy;
-
-import com.xiuwei.demo01.Rent;
+package com.xiuwei.demo03_动态代理;
 
 //房东
 public class Host implements Rent {

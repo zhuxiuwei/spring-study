@@ -1,4 +1,4 @@
-package com.xiuwei.demo01;
+package com.xiuwei.demo01_静态代理;
 
 //房东
 public class Host implements Rent {
