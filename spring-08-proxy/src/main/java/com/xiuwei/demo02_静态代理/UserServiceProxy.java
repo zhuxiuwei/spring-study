@@ -1,5 +1,6 @@
 package com.xiuwei.demo02_静态代理;
 
+//缺点：只能代理UserService，没法代理ProductService
 public class UserServiceProxy implements UserService {
 
     private UserService userService;
