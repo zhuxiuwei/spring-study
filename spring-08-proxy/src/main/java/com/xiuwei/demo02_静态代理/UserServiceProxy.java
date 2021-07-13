@@ -2,13 +2,10 @@ package com.xiuwei.demo02_静态代理;
 
 public class UserServiceProxy implements UserService {
 
-    private UserServiceImpl userService;
+    private UserService userService;
 
-    public UserServiceImpl getUserService() {
-        return userService;
-    }
 
-    public void setUserService(UserServiceImpl userService) {
+    public void setUserService(UserService userService) {
         this.userService = userService;
     }
 
