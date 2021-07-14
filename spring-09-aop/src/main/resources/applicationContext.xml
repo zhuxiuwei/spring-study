@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--配置bean-->
+    <bean id="userService" class="com.xiuwei.service.UserServiceMySQLImpl"/>
+    <bean id="log" class="com.xiuwei.log.Log"/>
+    <bean id="afterLog" class="com.xiuwei.log.AfterLog"/>
+
+    <!--配置aop： 需要导入aop的约束-->
+    <aop:config>
+        <!--切入点 expression: 表达式，execution(要执行的位置： 修饰词 返回值 类名 方法名 参数，可以用*通配符)-->
+        <aop:pointcut id="" expression="* com."/>
+    </aop:config>
+</beans>
