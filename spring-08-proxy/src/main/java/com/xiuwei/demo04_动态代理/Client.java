@@ -33,10 +33,7 @@ public class Client {
         ProductService productService = new ProductServiceMySQLImpl();
         handler.setTarget(productService);     //设置要代理的对象
         //生成代理类
-        ProductService proxy3 = (ProductService) Proxy.newProxyInstance(productService.getClass().getClassLoader(),
-                productService.getClass().getInterfaces(),
-                handler
-        );
+        ProductService proxy3 = (ProductService) handler.getProxy();
         //通过代理 执行方法
         proxy3.add();   //[debug] Use add method! \n add a product - MySQL
     }

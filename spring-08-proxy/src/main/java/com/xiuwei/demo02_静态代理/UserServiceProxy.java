@@ -1,6 +1,10 @@
 package com.xiuwei.demo02_静态代理;
 
-//缺点：只能代理UserService，没法代理ProductService
+/**
+    缺点：只能代理UserService，没法代理ProductService. 原因感觉是以下几方面：
+    1. 静态代理，需要和被代理类实现同样的接口（保证有同样的行为），因此换个接口就代理不了了。而动态代理通过反射(InvokeHandler的invoke方法可以指定method)，可以实现各种行为（接口方法）
+    2. 静态代理，被代理的对象，也是个写死的field(本例的userService)。动态代理的Proxy.newInstance()的第二个参数可以灵活指定被代理接口。InvokeHandler也可以设置一个Object类型的被代理类，支持各种类型接口作为被代理类。
+ */
 public class UserServiceProxy implements UserService {
 
     private UserService userService;

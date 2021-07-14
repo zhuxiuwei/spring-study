@@ -18,7 +18,7 @@ public class ProxyInvocationHandler implements InvocationHandler {
         //Proxy类：用户生成动态代理实例的
         return Proxy.newProxyInstance(
                 target.getClass().getClassLoader(),   //用哪个类加载器去加载代理对象。这里target改成this也work
-                target.getClass().getInterfaces(),  //:动态代理类需要实现的接口
+                target.getClass().getInterfaces(),  //动态代理类需要实现的接口
                 this    //h:动态代理方法在执行时，会调用h里面的invoke方法去执行
         );
     }
@@ -31,7 +31,8 @@ public class ProxyInvocationHandler implements InvocationHandler {
         return result;
     }
 
-    //代理附加功能：日志方法
+    //附加功能：日志方法
+    //注意：这个附加方法是放在InvokeHandler类的。因为并不存在一个静态的代理类让你放，代理是Proxy类的静态方法动态生成的。
     public void log(String msg){
         System.out.println("[debug] Use " + msg + " method!");
     }
