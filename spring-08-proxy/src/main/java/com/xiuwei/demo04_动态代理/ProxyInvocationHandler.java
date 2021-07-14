@@ -18,7 +18,7 @@ public class ProxyInvocationHandler implements InvocationHandler {
         //Proxy类：用户生成动态代理实例的
         return Proxy.newProxyInstance(
                 target.getClass().getClassLoader(),   //用哪个类加载器去加载代理对象。这里target改成this也work
-                target.getClass().getInterfaces(),  //:动态代理类需要实现的接口
+                target.getClass().getInterfaces(),  //动态代理类需要实现的接口
                 this    //h:动态代理方法在执行时，会调用h里面的invoke方法去执行
         );
     }
