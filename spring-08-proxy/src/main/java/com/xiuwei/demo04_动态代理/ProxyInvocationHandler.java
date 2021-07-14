@@ -31,7 +31,8 @@ public class ProxyInvocationHandler implements InvocationHandler {
         return result;
     }
 
-    //代理附加功能：日志方法
+    //附加功能：日志方法
+    //注意：这个附加方法是放在InvokeHandler类的。因为并不存在一个静态的代理类让你放，代理是Proxy类的静态方法动态生成的。
     public void log(String msg){
         System.out.println("[debug] Use " + msg + " method!");
     }
