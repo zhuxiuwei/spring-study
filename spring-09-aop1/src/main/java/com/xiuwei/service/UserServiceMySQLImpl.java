@@ -7,8 +7,9 @@ public class UserServiceMySQLImpl implements UserService{
     }
 
     @Override
-    public void delete() {
+    public int delete(int userId) {
         System.out.println("delete a user - MySQL");
+        return 1;
     }
 
     @Override

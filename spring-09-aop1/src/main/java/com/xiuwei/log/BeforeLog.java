@@ -5,7 +5,7 @@ import org.springframework.aop.MethodBeforeAdvice;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 
-public class Log implements MethodBeforeAdvice {
+public class BeforeLog implements MethodBeforeAdvice {
 
     @Override
     /***
@@ -14,6 +14,6 @@ public class Log implements MethodBeforeAdvice {
      * target: 目标对象
      */
     public void before(Method method, Object[] args, Object target) throws Throwable {
-        System.out.println("[debug] 执行了"+ target.getClass().getName() + "类的" + method.getName() + "方法，参数为：" + Arrays.toString(args));
+        System.out.println("[Before log] 执行了"+ target.getClass().getName() + "类的" + method.getName() + "方法，参数为：" + Arrays.toString(args));
     }
 }

@@ -9,8 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-09-aop</artifactId>
-
+    <artifactId>spring-09-aop1</artifactId>
     <dependencies>
         <dependency>
             <groupId>org.aspectj</groupId>
@@ -18,4 +17,5 @@
             <version>1.9.4</version>
         </dependency>
     </dependencies>
+
 </project>
