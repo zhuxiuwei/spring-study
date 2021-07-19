@@ -13,8 +13,9 @@ public class UserServiceMySQLImpl implements UserService{
     }
 
     @Override
-    public void update() {
+    public int update(int userId) {
         System.out.println("update a user - MySQL");
+        return userId;
     }
 
     @Override
