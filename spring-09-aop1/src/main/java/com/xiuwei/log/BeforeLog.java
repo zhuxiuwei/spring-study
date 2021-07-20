@@ -5,6 +5,9 @@ import org.springframework.aop.MethodBeforeAdvice;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 
+/**
+ * AOP实现方式1 - Spring接口
+ */
 public class BeforeLog implements MethodBeforeAdvice {
 
     @Override

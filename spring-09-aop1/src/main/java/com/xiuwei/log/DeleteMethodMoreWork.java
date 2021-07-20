@@ -5,6 +5,9 @@ import org.springframework.aop.AfterReturningAdvice;
 
 import java.lang.reflect.Method;
 
+/**
+ * AOP实现方式1 - Spring接口
+ */
 public class DeleteMethodMoreWork implements AfterReturningAdvice {
 
     public void afterReturning(Object o, Method method, Object[] objects, Object o1) throws Throwable {

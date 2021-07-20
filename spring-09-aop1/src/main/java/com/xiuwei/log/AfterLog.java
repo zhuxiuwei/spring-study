@@ -5,6 +5,9 @@ import org.springframework.aop.AfterReturningAdvice;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 
+/**
+ * AOP实现方式1 - Spring接口
+ */
 public class AfterLog implements AfterReturningAdvice {
 
     //returnValue： 返回值
