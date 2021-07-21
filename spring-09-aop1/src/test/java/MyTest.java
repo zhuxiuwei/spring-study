@@ -47,8 +47,33 @@ public class MyTest {
          */
     }
 
+    //测试AOP实现3：注解方式实现AOP
+    public static void testAOP3(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext_aop3.xml");
+        UserService userService = context.getBean("userService", UserService.class);
+        try {
+            userService.update(3);
+        }catch (Exception e){   //会抛异常：org.springframework.aop.AopInvocationException: Null return value from advice does not match primitive return type for: public abstract int com.xiuwei.service.UserService.update(int) https://stackoverflow.com/questions/56497893/org-springframework-aop-aopinvocationexception-null-return-value-from-advice-do
+//            e.printStackTrace();
+        }
+        /*
+         * --------环绕前--------
+         * ========方法执行前========
+         * update a user - MySQL
+         * Signature: int com.xiuwei.service.UserService.update(int)
+         * args: [3]
+         * Target: com.xiuwei.service.UserServiceMySQLImpl@1f0f1111
+         * this: com.xiuwei.service.UserServiceMySQLImpl@1f0f1111
+         * result: 3
+         * --------环绕后--------
+         * ========方法执行后========
+         */
+    }
+
     public static void main(String[] args) {
 //        testAOP1();
-        testAOP2();
+//        testAOP2();
+        testAOP3();
+
     }
 }
