@@ -8,6 +8,6 @@ public class MyTest {
     public void test() {
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         UserMapper mapper = context.getBean("userMapper", UserMapper.class);
-        System.out.println(mapper.selectUser());
+        System.out.println(mapper.selectUser());    //[User(id=1, name=朱修伟, pwd=password), User(id=2, name=曹小娜, pwd=password)]
     }
 }
