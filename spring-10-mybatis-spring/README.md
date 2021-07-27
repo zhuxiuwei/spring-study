@@ -1,0 +1,1 @@
+mybatis-spring方式，将mybatis与spring整合
