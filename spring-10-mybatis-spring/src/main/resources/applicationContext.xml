@@ -10,4 +10,10 @@
         <property name="sqlSession" ref="sqlSession"/>
     </bean>
 
+    <!-- 使用SqlSessionDaoSupport，进一步简化。（了解即可）
+         如果使用这个方法，'Spring-DAO.xml'里'bean id="sqlSession"' 部分可以删掉。
+    -->
+    <bean id="userMapper2" class="xiuwei.mapper.UserMapperImpl2">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
 </beans>
