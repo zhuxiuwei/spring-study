@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--https://blog.csdn.net/qq_37745636/article/details/100676242-->
+
+<!--    <typeAliases>-->
+<!--        <package name="com.xiuwei.pojo"/>-->
+<!--    </typeAliases>-->
+
+    <environments default="development">
+        <environment id="development">
+            <!-- 使用JDBC事务管理 -->
+            <transactionManager type="JDBC" />
+            <!-- 数据库连接池 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/> <!-- 注意Driver第一个字母大写 -->
+                <property name="url" value="jdbc:mysql://localhost:3306/mybatis?characterEncoding=UTF-8&amp;useUnicode=true&amp;useSSL=false"/> <!-- 注意不支持直接写&符号 -->
+                <property name="username" value="root"/>
+                <property name="password" value="admin"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!-- Spring-DAO.xml里注册过 mapperLocations，就要删除以下代码。 -->
+<!--    <mappers>-->
+    <!--        <mapper class="xiuwei.mapper.UserMapper" />-->
+    <!--    </mappers>-->
+
+</configuration>
