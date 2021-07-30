@@ -1,11 +1,13 @@
 import com.xiuwei.service.UserService;
+import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class MyTest {
 
+    @Test
     //测试AOP实现1： Spring 接口实现
-    public static void testAOP1(){
+    public void testAOP1(){
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         UserService userService = context.getBean("userService", UserService.class);
         userService.add();
@@ -29,8 +31,9 @@ public class MyTest {
          */
     }
 
+    @Test
     //测试AOP实现2：自定义类
-    public static void testAOP2(){
+    public void testAOP2(){
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext_aop2.xml");
         UserService userService = context.getBean("userService", UserService.class);
         userService.add();
@@ -47,8 +50,9 @@ public class MyTest {
          */
     }
 
+    @Test
     //测试AOP实现3：注解方式实现AOP
-    public static void testAOP3(){
+    public void testAOP3(){
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext_aop3.xml");
         UserService userService = context.getBean("userService", UserService.class);
         try {
@@ -68,12 +72,5 @@ public class MyTest {
          * --------环绕后--------
          * ========方法执行后========
          */
-    }
-
-    public static void main(String[] args) {
-//        testAOP1();
-//        testAOP2();
-        testAOP3();
-
     }
 }
