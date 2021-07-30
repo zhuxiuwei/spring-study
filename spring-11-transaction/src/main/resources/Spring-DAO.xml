@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        https://www.springframework.org/schema/beans/spring-beans.xsd">
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+        https://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <!-- 下面的配置专注DB操作，以后不用改了。 -->
 
@@ -28,5 +34,27 @@
         <!-- 只能使用构造器注入sqlSessionFactory，因为它没有set方法-->
         <constructor-arg index="0" ref="sqlSessionFactory"/>
     </bean>
+
+    <!-- 配置声名式事务 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <!-- 结合AOP，实现事务的织入 -->
+    <!-- 配置事务通知 -->
+    <tx:advice transaction-manager="transactionManager" id="txAdvice" >
+        <!--给哪些方法配置事务 -->
+        <!-- 配置事务传播特性，默认REQUIRED，也是最常用的 -->
+        <tx:attributes>
+            <tx:method name="add" propagation="REQUIRED"/>
+            <tx:method name="*" propagation="REQUIRED"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <!-- 配置事务切入 -->
+    <aop:config>
+        <aop:pointcut id="txPointCut" expression="execution(* xiuwei.mapper.*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointCut"/>
+    </aop:config>
 
 </beans>

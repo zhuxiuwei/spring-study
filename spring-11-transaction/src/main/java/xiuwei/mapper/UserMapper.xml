@@ -11,7 +11,7 @@
         insert into mybatis.user(id, name, pwd) values (#{id}, #{name}, #{pwd})
     </insert>
 
-    <!-- 故意引入语法错误"deletes"，好测试事务 -->
+    <!-- 一定会执行失败的SQL。故意引入语法错误"deletes"，好测试事务 -->
     <delete id="deleteUser" parameterType="int">
         deletes from mybatis.user where id=#{id}
     </delete>

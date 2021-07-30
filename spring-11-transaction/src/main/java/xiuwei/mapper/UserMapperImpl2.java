@@ -25,7 +25,7 @@ public class UserMapperImpl2 extends SqlSessionDaoSupport implements UserMapper 
     //如果deleteUser失败，addUser应该也失败，才符合事务定义。
     public void testTransactionMethod(){
         UserMapper mapper = getSqlSession().getMapper(UserMapper.class);
-        int id = 100;
+        int id = 110;
         int i = mapper.addUser(new User(id, "name", "12345"));
         int j = mapper.deleteUser(id);
         System.out.println(i + " " + j);

@@ -17,14 +17,15 @@ public class MyTest {
         user.setPwd("1234");
         System.out.println(mapper.addUser(user));
 
-        System.out.println(mapper.deleteUser(3));
+//        System.out.println(mapper.deleteUser(3));
     }
 
     @Test
     //测试事务
+    //如果事务生效，那么这个测试会报SQL语法错误的报错，同时db里没有插入新的user（数据一致性）。
     public void testTransaction(){
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-        UserMapperImpl2 mapperImpl2 = context.getBean("userMapper2", UserMapperImpl2.class);
-        mapperImpl2.testTransactionMethod();
+        UserMapper mapper = context.getBean("userMapper2", UserMapper.class);
+        mapper.testTransactionMethod();
     }
 }
