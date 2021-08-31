@@ -21,7 +21,10 @@
         <property name="password" value="admin"/>
     </bean>
 
-    <!-- sqlSessionFactory -->
+    <!-- sqlSessionFactory
+         public class SqlSessionFactoryBean implements FactoryBean<SqlSessionFactory>, InitializingBean, ApplicationListener<ApplicationEvent> 。。。
+         SqlSessionFactoryBean实现了Spring的FactoryBean。FactoryBean的用法，见我 "有道云笔记 - 【尚硅谷】工厂bean (FactoryBean)"
+     -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <!-- 绑定mybatis配置文件 -->
