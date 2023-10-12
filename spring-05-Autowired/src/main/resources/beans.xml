@@ -6,7 +6,7 @@
 
     <bean id="cat" class="pojo.Cat"/>
     <bean id="dog" class="pojo.Dog"/>
-
+<!--    <bean id="dog2" class="pojo.Dog"/>-->
 
     <!-- 自动装配 byName: 根据属性的set方法(如setFoo)，自动去容器上下文里查找bean id相同的bean(如id=foo)。
          本例中，Person类里有setDog、setCat方法，故会在容器上下文里找bean id为dog和cat的类来注入给Person的两个属性。
@@ -15,8 +15,8 @@
 
     <!-- 自动装配 byType: 根据属性的类型，自动去容器上下文里查找类型相同的bean。
          弊端： 要求一个类型全局唯一。 如果有两个bean class相同，则直接xml就报错。比如如果定义了俩class="pojo.Dog"的bean,
-         会报错：Could not autowire. There is more than one bean of 'Dog' type. Beans: dog,do2g. Properties: 'dog' 、
-         好处： bean的id省略了，依然可以跑成功。 -->
+         会报错：Could not autowire. There is more than one bean of 'Dog' type. Beans: dog,dog2. Properties: 'dog'
+         好处： 和bean的id解耦。即使bean id省略了（如#8去掉id="dog"），依然可以成功注入依赖的属性。 -->
     <bean id="personByType" class="pojo.Person" autowire="byType"/>
 
     <!-- 以下手工
