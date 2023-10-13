@@ -16,7 +16,7 @@ public class MyConfig {
      * 注册一个bean，相当于<bean>标签。
      * 调用方默认通过方法名获取bean。如果Bean注解加上"name"属性值，这个值会覆盖方法名。 用法见MyTest类
      */
-    @Bean(name="haha")
+    @Bean(name={"haha", "haha2"})   //把name改成value好像功能也一样，GPT解释说这俩属性作用一样。但是好像不能同时指定name和value。
     public User getUser(){  //方法的名字 相当于bean ID； 方法的返回值，相当于bean class
         return new User();  //就是返回要注入的对象
     }

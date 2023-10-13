@@ -18,7 +18,7 @@ public class MyTest {
         //根据配置类里被覆盖的bean name获取 (MyConfig类: @Bean(name="haha"))
         User user1 = context.getBean("haha", User.class);
         System.out.println(user1);  //User{name='张三'}
-        User user2 = context.getBean("haha", User.class);
+        User user2 = context.getBean("haha2", User.class);
         System.out.println(user2);  //User{name='张三'}
         System.out.println(user1 == user2);  //true
 
