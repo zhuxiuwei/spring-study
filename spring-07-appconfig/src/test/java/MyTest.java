@@ -23,8 +23,8 @@ public class MyTest {
         System.out.println(user1 == user2);  //true
 
         /**
-         * byType或byName获取。和MyConfig类无关（如果注释掉MyConfig里的"public User getUser()"方法，不影响下面user2的getBean执行。）
-         * 能工作有2个前提：1). 配置类里加"@ComponentScan("com.xiuwei")" 2). User加Component注解。
+         * byType或byName获取。和MyConfig类的getUser()方法无关（如果注释掉MyConfig里的"public User getUser()"方法，不影响下面user2的getBean执行。）
+         * 能工作有2个前提：1). 配置类MyConfig里加"@ComponentScan("com.xiuwei")" 2). User加了@Component注解。
          * 否则报错：Exception in thread "main" org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'user' available
          */
         User user3 = context.getBean("user", User.class);
