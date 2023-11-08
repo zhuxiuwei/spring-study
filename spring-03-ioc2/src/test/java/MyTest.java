@@ -1,11 +1,15 @@
+import anno_version.MyConfig;
+import org.junit.Assert;
+import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import pojo.User;
 
 public class MyTest {
-    public static void main(String[] args) throws InterruptedException {
+    @Test
+    public void xmlTest(){
         ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
-
         // 默认：用无参构造
         User user = (User) context.getBean("user");
         user.show();
@@ -25,9 +29,8 @@ public class MyTest {
         //测试单例
         User user2 = (User) context.getBean("user4");
         System.out.println(user == user2);  //true
-
         /**
-         * 输出结果：
+         * 输出：
          * 无参构造函数！
          * 有参构造函数！
          * 有参构造函数！
@@ -40,6 +43,19 @@ public class MyTest {
          *
          * 头4行， 说明在配置文件加载的时候（ApplicationContext创建好的时候），容器里的对象就被初始化了。
          * 最后一行，说明同一个id的bean实例化多次，还是同一个实例（单例模式）
+         */
+    }
+
+    @Test
+    public void annoTest(){
+        ApplicationContext context = new AnnotationConfigApplicationContext(MyConfig.class);
+        context.getBean("u1");
+        context.getBean("u2");
+//        context.getBean("user");  //不Work,会报错：org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'user' available
+        /**
+         * 输出：
+         * 有参构造函数！
+         * 无参构造函数！
          */
     }
 }

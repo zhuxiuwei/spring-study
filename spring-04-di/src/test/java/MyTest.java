@@ -1,4 +1,6 @@
-import anno_version.AppConfig;
+import anno_version.AppConfigV1;
+import anno_version.AppConfigV2;
+import anno_version.pojo.Student2;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -38,22 +40,38 @@ public class MyTest {
 
     }
     @Test
-    public void testAnnoVersion(){
-        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+    public void testAnnoV1(){
+        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfigV1.class);
         Student student = context.getBean("student", Student.class);
         System.out.println(student);
         /**
          * 输出：
-         * Student{name='top gun', address=Address{address='北京市海淀区'},
+         * Student{name='top gun', address=Address{address='北京市海淀区222'},
          *      books=["红楼梦", "西游记"], hobbies=["音乐", "电影"],
          *      card={身份证=身份照号码, 学生证=学生证号码}, games=["生化危机", "CS"],
          *      info={籍贯="USA", 性别="二椅子"}, wife='null'}
          */
 
-        Object address222 = context.getBean("address222");
-        System.out.println(address222);
+        Object address = context.getBean("address");
+        System.out.println(address);
         /**
          * Address{address='北京市海淀区'}
+         */
+    }
+
+    @Test
+    public void testAnnoV2(){
+        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfigV2.class);
+        Student2 student2 = context.getBean("student2", Student2.class);
+        System.out.println(student2);
+
+        Object address2 = context.getBean("address2");
+        System.out.println(address2);
+
+        /**
+         * 输出：
+         * Student{name='名字by注解', address2=Address2{address='空'}, books=null, hobbies=null, card=null, games=null, info=null, wife='null'}
+         * Address2{address='空'}
          */
     }
 }
